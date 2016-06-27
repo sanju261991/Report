@@ -1,52 +1,23 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-% Implementation
+% 
 % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\chapter{Implementation}
-\label{sec:implementation}
+\chapter{Simulation Method}
+\label{sec:Simulation Method}
+
+\section{FEM}
 
 
-\Blindtext[5][2]
+\section{Simulation Setup}
+\subsection{Sphere vs Rigid Plane}
+In this simulation the collision of two viscoelastic spheres is studied. Both the spheres have the same magnitude of velocity but opposite directions. Therefore to simplify the model and computation, instead of simulation two spheres colliding, a single sphere colliding against a rigid plane can be simulated. This setup would be equivalent to the original problem as both the spheres are the same in all aspects except for having different directions of velocities.
 
-\begin{figure}
-\centering
-\begin{tabular}{c}
-\begin{lstlisting}
-static int __init serpent_init(void)
-{
-    u64 xcr0;
-    if (!cpu_has_avx || !cpu_has_osxsave) {
-        printk(KERN_INFO "AVX instructions are not detected.\n");
-        return -ENODEV;
-    }
-    xcr0 = xgetbv(XCR_XFEATURE_ENABLED_MASK);
-    if ((xcr0 & (XSTATE_SSE | XSTATE_YMM)) != (XSTATE_SSE | XSTATE_YMM)) {
-        printk(KERN_INFO "AVX detected but unusable.\n");
-        return -ENODEV;
-    }
-    return crypto_register_algs(serpent_algs, ARRAY_SIZE(serpent_algs));
-}
+\subsection{Symmetry}
+To further simplify the model, instead of considering the complete sphere, only a 2D semi-circular cross-section is considered. As the spheres are symmetric about the central rotational axis and the angle of contact is 90 degrees, there would not be any velocity in the Y direction. 
 
-static void __exit serpent_exit(void)
-{
-    crypto_unregister_algs(serpent_algs, ARRAY_SIZE(serpent_algs));
-}
+\section{Measurement Quantities}
 
-module_init(serpent_init);
-module_exit(serpent_exit);
-
-MODULE_DESCRIPTION("Serpent Cipher Algorithm, AVX optimized");
-MODULE_LICENSE("GPL");
-MODULE_ALIAS("serpent");
-\end{lstlisting}
-\end{tabular}
-\caption{Serpent AVX module initialization}
-\label{fig:serpent_init}
-\end{figure}
-
-Some complex code is shown in Figure~\ref{fig:serpent_init}. \blindtext
-
-
+\section{Verification}
