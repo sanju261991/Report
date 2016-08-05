@@ -45,14 +45,35 @@ The figure shows the rigid plane against which the sphere would be colliding.
 
 \section{Measurement Quantities}
 
-\subsection{Deformation of Center of Mass}
+\subsection{Displacement}
+
+To measure the displacement of the body, the displacement of the center of mass was measured. The center of mass of the of a sphere is located at the sphere. The figure shows the center of the 2D semi-circle which was considered as the sphere of the model. To measure the displacement center of mass of the sphere, the displacement of center of the semicircle was considered.
 
 \subsection{Kinetic Energy}
 
+The kinetic energy of an object is the energy that it possesses due to its motion. As the aim of the thesis is to measure the co-efficient of restitution, which is directly related to the restitution kinetic energy in the body after the collision is completed.
+
+\begin{equation}
+Kinetic Energy(KE) = \frac{mv^{2}}{2}
+\end{equation}
+ 
+ where $m$ is the mass of the object and $v$ is the velocity of the object.
+
 \subsection{Strain Energy}
+
+The strain energy is the energy stored by a system undergoing deformation. During a collision, a part of the kinetic energy is converted into strain energy. This strain energy can also be observed as vibration on the body of the object. When the load is removed,
+
+\begin{equation}
+Strain Energy(U) = \frac{V\sigma\epsilon}{2}
+\end{equation}
+
+where $V$ is volume, $\sigma$ is stress and $\epsilon$ is strain.
 
 \subsection{Co-efficient of Restitution}
 
 The co-efficient of restitution describes the energy transfer 	 
 
 \section{Verification}
+
+To verify the correctness of the simulation setup, various meshes were tried. 
+As Abaqus CAE has an option to automatically choose a suitable timestep, the automatic option was chosen.
