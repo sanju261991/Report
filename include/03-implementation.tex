@@ -9,11 +9,267 @@
 \label{sec:Simulation Method}
 
 \section{FEM}
+The finite element method (FEM) is a numerical technique for solving problems which are described by partial differential equations or can be formulated as functional minimization. A domain of interest is is divided into an assembly of finite elements. Approximating functions in finite elements are determined
+in terms of nodal values of a physical field which is sought. A continuous physical problem is transformed into a discretized finite element problem with unknown nodal values. For a linear problem a system of linear algebraic equations should be solved. Values inside finite elements can be recovered
+using nodal values. FEM then uses variational methods from the calculus of variations to approximate a solution by minimizing an associated error function.
+Two features of the FEM are worth to be mentioned:
+1) Piece-wise approximation of physical fields on finite elements provides good precision even with
+simple approximating functions (increasing the number of elements we can achieve any precision).
+2) Locality of approximation leads to sparse equation systems for a discretized problem. This helps to
+solve problems with very large number of nodal unknowns.
+
+\subsection{Steps in FEM}
+Finite Element Method can be generaliyed into these steps.
+\begin{itemize}
+ 
+ \item The physical problem has to be defined. All the desired results and the geometry of the problem have to be specified.
+
+\item The mathematical model has to be formulated
+The physical problem has to be formulated as an (initial) boundary value problem, e.g. by means of partial differential equations with boundary and, if required, initial conditions.
+
+\item The FE model has to be setup, which means that the mathematical model has to be discretised and the equations are solved. The structure is subdivided into finite elements, the solution is approximated element-wise and computed at the nodes of these elements. By this procedure, the differential equations are transferred into a system of algebraic equations
+
+\begin{equation}
+K.u = F
+\end{equation}
+For a static stress analysis, the unknown nodal values subsumed in u are the nodal displacements, K is the stiffness matrix and f contains the nodal forces. This system of equations has to be solved for the unknown nodal values
+
+\begin{equation}
+u = K^{-1}.f
+\end{equation}
+
+Subsequently, the dependent variables have to be computed in a so-called postprocessing step. For a stress analysis the strains, the stresses, equivalent stresses and further variables are derived from the nodal displacement values and are usually displayed graphically.
+
+\item The FE model yields a numerical solution which is an approximation of the exact solution of the mathematical problem. It has to be verified that the numerical solution is accurate enough and, if not, the FE model has to be improved. A more accurate solution can be obtained by choosing a larger number of nodes, which results in smaller finite elements. This, however, leads to higher computational effort such that an FE solution always represents a reasonable compromise between accuracy and computational effort.
+
+
+\item When a satisfying numerical solution is found, the results have to be interpreted and validated. This is usually done by comparing them to those obtained from experiments. If the numerical solution does not sufficiently capture the relevant phenomena, the physical problem or the mathematical model might have to be adapted. The comparison between numerical and experimental results can also be used to e.g. identify material parameters.
+\end{itemize}
+
+
+\subsubsection{Kinematics \cite{FEM}}
+
+The basic variables to describe the motion and deformation flexible
+bodies are Deformation, Velocity and Acceleration. 
+
+In continuum mechanics we can consider a body as set of particles,
+defined by the position vector X and material configuration $\beta_{0}$
+of body at initial time $t_{0}$ (material configuration)
+and position vector x and configuration $\beta_{t}$
+at certain time t (spatial configuration).
+
+{[}5{]}configurations and motion of a body (figure 2.1)
+
+We define a nonlinear deformation map $\varphi$, which describes
+the motion of the body. The deformation map has to be unique, continuous
+and differentiable and maps the points X in the material configuration
+to the places x in the spatial configuration 
+
+\begin{equation}
+x=\varphi(X,t)\,with\,\varphi\colon\beta_{0}\rightarrow\beta_{t}
+\end{equation}
+
+
+This description is common in solid mechanics and is denoted as the
+Lagrangian description of motion: the motion is characterized with
+respect to the material coordinates and one follows the movement of
+a particle in time. Inverse mapping is described using 
+
+\begin{equation}
+X=\varphi(x,t) , with, \varphi: \beta_{t}\rightarrow\beta_{0}
+\end{equation}
+
+
+Using Lagrangian description displacement field u can be determined
+as the difference of spatial and material coordinate system.
+
+\begin{equation}
+u(X,t)=x(X,t)-X\label{Lagrangian displacement field}
+\end{equation}
+
+
+
+
+
+
+
+\subsubsection{Kinetics \cite{FEM}}
+
+The derivation of the kinetic formulation for FE structure is based
+upon above principle of structural displacement and D\textquoteright Alembert
+principle in Lagrangian formulation.
+
+According to D\textquoteright Alembert principle the sum of the virtual
+work of all forces acting on the body must be zero. Hence, the sum
+of the virtual work of the inertial forces, the internal forces and
+the applied external body force over an arbitrary volume $V_{0}$,
+and the applied surface force over an infinitesimal area $A_{0}$
+of $V_{0}$ equals zero, i.e.
+
+
+\begin{equation}
+-\int_{V_{0}} \delta u^{T}\rho_{0}\textbf{$\ddot{u}$}dV_{0}-\int_{V_{0}}\delta\epsilon^{T}H\varepsilon dV_{0}+\int_{V_{0}}\delta u^{T} b_{0}dV_{0}+\int_{A_{0}}\delta u^{T}p_{0}dA_{0}=0\label{D'Alembert principle}
+\end{equation}
+
+
+let $\rho_{0}$ represent the material density, $b_{0}$ the vector
+of the applied external body force over $V_{0}$, $p_{0}$ the vector
+of the applied external surface force over $A_{0}$ and the strain
+tensor. The term $H$ is the, so called, material matrix defined for
+homogeneous, elastic and isotropic materials, with which the material
+law is described.
+
+The substitution of Eq.(\ref{Lagrangian displacement field}) into
+the first summand of Eq.(\ref{D'Alembert principle}) leads to the
+following series of equations: 
+
+\begin{equation}
+\int_{V_{0}}\delta u^{T}\rho_{0}\textbf{$\ddot{u}$}dV_{0}\,\,=\delta z_{F}^{T}\stackrel[e=1]{n_{E}}{\sum}\left(T^{e^{T}}\int_{V_{0}^{e}}N^{eT}(x)\rho_{0}^{e}(x)N^{e}(x)dVT^{e}\right)\ddot{z}_{F}
+\end{equation}
+
+\begin{equation}
+\mathrm{=\delta z_{F}^{T}\underset[e=1]{n_{E}}{\sum}{T^{e}}^{T}M^{e}T^{e}\ddot{z}_{F}}
+\end{equation}
+
+\begin{equation}
+\mathrm{=\delta\boldsymbol{z_{F}^{T}}\boldsymbol{M}_{F}\ddot{\boldsymbol{z}}_{F}}\label{first term of D'Alembert principle}
+\end{equation}
+
+where,
+
+\[
+\mathrm{\mathbf{M^{e}=\int_{\mathbf{V_{0^{e}}}}N^{eT}}(\mathbf{x})\rho^{e}(\mathbf{x})\mathbf{N^{e}}(\mathbf{x})dV}
+\]
+represents mass matrix for each element of FE structure.
+
+\[
+\mathbf{M_{F}=\sum_{e=1}^{n_{E}}T^{eT}M^{e}T^{e}}
+\]
+represents mass matrix for entire FE structure.
+
+The substitution of Eq.(\ref{Lagrangian displacement field}) and
+linearized strain-displacement relation in the second summand of Eq.(\ref{D'Alembert principle})leads
+to the following:
+
+
+\begin{equation}
+\mathrm{\mathrm{\int_{V_{0}}\delta\mathbf{\varepsilon^{T}H\varepsilon}dV_{0}=\delta\mathbf{z}_{F}^{T}\sum_{e=1}^{n_{E}}(\mathbf{T}^{eT}\int_{V_{0^{e}}}\mathbf{B}^{eT}(\mathbf{x})\mathbf{H}^{e}\mathbf{B}^{e}(\mathbf{x})dV\mathbf{T}^{e})\mathbf{z}_{F}}}
+\end{equation}
+
+
+\[
+\mathrm{\mathrm{=\delta}\mathbf{z}_{F}^{T}\sum_{e=1}^{n_{E}}\mathbf{T}^{eT}\mathbf{K}^{e}\mathbf{T}^{e}\mathbf{\mathbf{z}}_{F}}
+\]
+\begin{equation}
+\mathrm{\mathrm{=\delta}\mathbf{z}_{F}^{T}\mathbf{K}_{F}\mathbf{z}_{F}}\label{second term of D'Alembert principle}
+\end{equation}
+
+
+where,
+\[
+\mathrm{\mathbf{K}^{e}=\int_{V_{0}}\mathbf{B}^{eT}(\mathbf{x})\mathbf{H}^{e}\mathbf{B}^{e}(\mathbf{x})dV}
+\]
+represents linear stiffness matrix for each element of FE structure.
+
+\[
+\mathrm{\mathbf{K}_{F}=\sum_{e=1}^{n_{E}}\mathbf{T}^{e}\mathbf{K}^{e}\mathbf{T}^{e}}
+\]
+represent linear stiffness matrix of whole FE structure.
+
+
+For the third summand of Eq.(\ref{D'Alembert principle}), the definition
+of the body force for each element of the FE structure is used, using
+$b_{0}$=Element material density ($\rho$) {*} gravity ($g$)
+
+\begin{equation}
+\mathrm{\mathrm{\int_{\mathbf{A_{0}}}\delta\mathbf{u^{T}}\mathbf{b_{0}}dV_{0}=\delta\mathbf{z}_{F}^{T}\sum_{e=1}^{n_{\mathcal{E}}}(T^{eT}\int_{V_{0}^{e}}\mathbf{N^{eT}}(\mathbf{x})\rho_{0}^{e}(\mathbf{x})dV\mathbf{\Gamma^{e}})g}}
+\end{equation}
+\begin{equation}
+\mathrm{\mathrm{=\delta\mathbf{z}_{F}^{T}\sum_{e=1}^{n_{E}}\mathbf{T^{eT}}\mathbf{f}_{g}^{e}=\delta\mathbf{z}_{F}^{T}\mathbf{F_{g}}}}\label{third term of D'Alembert principle}
+\end{equation}
+
+where,
+\[
+f_{g}^{e} = \int_{V_{0}^{e}} N^{eT}(x) \rho_{0}^{e}(x) dV \Gamma^{e}g
+\]
+represent body force vector for each element.
+
+\[
+\mathrm{\mathbf{F}_{g}=\sum_{e=1}^{n_{E}}\mathbf{T^{eT}}\mathbf{f}_{g}^{e}}
+\]
+represent body force vector for whole FE structure.
+
+Finally, for the last summand of Eq. (\ref{D'Alembert principle})
+the utilization of Eq. (\ref{Lagrangian displacement field}) gives
+
+\begin{equation}
+\mathrm{\int_{\mathbf{V_{0}}}\delta\mathbf{u^{T}}\mathbf{p_{0}}dA_{0}=\delta\mathbf{z}_{F}^{T}\sum_{e=1}^{n_{\mathcal{E}}}T^{eT}\int_{V_{0}^{e}}\mathbf{N^{eT}}(\mathbf{x})\rho_{0}^{e}(\mathbf{x})dA\mathbf{\Gamma^{e}}}
+\end{equation}
+\begin{equation}
+\mathrm{\mathrm{=\delta\mathbf{z}_{F}^{T}\sum_{e=1}^{n_{E}}\mathbf{T^{eT}}\mathbf{f}_{p}^{e}=\delta\mathbf{z}_{F}^{T}\mathbf{F}_{p}}}\label{fourth term of D'Alembert principle}
+\end{equation}
+
+
+where,
+\[
+\mathrm{\mathbf{f}_{p}^{e}=\int_{V_{0}^{e}}\mathbf{N^{eT}}(\mathbf{x})\rho_{0}^{e}(\mathbf{x})dA\mathbf{\Gamma^{e}}}
+\]
+represent external applied on surface of each element.
+\[
+\mathrm{\mathbf{F}_{p}=\sum_{e=1}^{n_{E}}\mathbf{T^{eT}}\mathbf{f}_{p}^{e}}
+\]
+represent external force applied on surface of whole FE structure.
+
+Gathering Eq. (\ref{first term of D'Alembert principle}), (\ref{second term of D'Alembert principle}),
+(\ref{third term of D'Alembert principle}), and (\ref{fourth term of D'Alembert principle})
+and substituting them in Eq. (\ref{D'Alembert principle}) leads to 
+
+\begin{equation}
+\delta\mathbf{z}_{F}^{T}(\mathbf{M}_{F}\ddot{\boldsymbol{z}}_{F}+\mathbf{K}_{F}\mathbf{z}_{F}+\mathbf{F_{g}}+\mathbf{F}_{p})=0\label{LTI equation of motion ... undamped}
+\end{equation}
+
+
+which is general second order LTI equation of motion for undamped
+FE structure.
+
+If damping effects are to be considered, the definition of the associated
+parameter is essential. The simplest, and most commonly used, damping
+model assumes the damping to be linearly proportional to the structure\textquoteright s
+velocity. This leads to the following equation for linearly damped
+FE structures in matrix form 
+\begin{equation}
+\mathrm{\mathbf{M}_{F}\ddot{\boldsymbol{z}}_{F}+\mathbf{D}_{F}\mathbf{\dot{z}}_{F}+\mathbf{K}_{F}\mathbf{z}_{F}=\mathbf{F}}
+\end{equation}
+
+
+with \textbf{D\textsubscript{\textbf{F}}} being the structural damping
+matrix and \textbf{F = F\textsubscript{\textbf{g}}}+\textbf{F\textsubscript{\textbf{p}}}used
+for total force acting on structure. The elemental damping can be
+formulated in similar pattern as for other matrix described above.
+
+From now on we will drop the suffix F used to represent system matrix
+and vectors of FE structure, so equation can be written as 
+
+\begin{equation}
+\mathbf{M}\ddot{\mathbf{\boldsymbol{z}}}+\mathbf{D}\mathbf{\dot{z}}+\mathbf{K}\mathbf{z}=\mathbf{F}\label{final equtation of motion FE}
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+\subsection{FEM Tools}
+
 
 
 \section{Simulation Setup}
 \subsection{Sphere vs Rigid Plane}
-In this simulation the collision of two viscoelastic spheres is studied. Both the spheres have the same magnitude of velocity but opposite directions. Therefore to simplify the model and computation, instead of simulation two spheres colliding, a single sphere colliding against a rigid plane can be simulated. This setup would be equivalent to the original problem as both the spheres are the same in all aspects except for having different directions of velocities.
+In this simulation the collision of two viscoelastic spheres is studied. Both the spheres have the same magnitude of velocity but opposite directions. Therefore to simplify the model and computation, instead of simulation two spheres colliding, a single sphere colliding against a rigid plane can be simulated. This setup would be equivalent to the original problem as both the lspheres are the same in all aspects except for having different directions of velocities.
 
 \subsection{Symmetry}
 To further simplify the model, instead of considering the complete sphere, only a 2D semi-circular cross-section is considered. As the spheres are symmetric about the central rotational axis and the angle of contact is 90 degrees, there would not be any velocity in the Y direction. 

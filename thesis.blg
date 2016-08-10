@@ -9,3 +9,5 @@ A level-1 auxiliary file: include/04-results.aux
 A level-1 auxiliary file: include/05-conclusion.aux
 The style file: plainnat.bst
 Database file #1: thesis.bib
+Warning--empty year in FEM
+(There was 1 warning)
