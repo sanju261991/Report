@@ -40,10 +40,11 @@
 \includegraphics[width=0.55\textwidth]{{../images/deformationVStime/Velocity300.0}.png}
 \label{fig:def300}
 }
-\caption{Velocity vs Time for various impact velocities}
+\caption{Displacement of the center of the sphere for various impact velocities}
 \label{fig:def}
 \end{figure}
 
+The plots in \ref{fig:def} show displacement of the center of the sphere with respect to time. The plots shows that as the impact velocities are higher, the difference between the simulation data and the theoretical data is more visible. This errors is due the quasi static assumptions.
 
 \begin{figure}[H]
 \centering
@@ -77,18 +78,19 @@
 \label{fig:force}
 \end{figure}
 
-The plots in \ref{fig:force} show the contact force at between the sphere and the rigid plane with respect to time for various impact velocities. It is clear from the plots that at higher impact velocities the simulated and the theoretical plots are significantly different. This difference occurs due the the quasi static approximation that are considered in the current model of contact mechanics.
+The plots in \ref{fig:def} show the contact force between the sphere and the rigid plane. The plots shows that as the impact velocities are higher, the difference between the simulation data and the theoretical data is more visible. This errors is due the quasi static assumptions.
+
+
 
 \section{COR}
 
 \begin{figure}[H]
-\includegraphics[width=1.25\textwidth]{../images/COR/COR.png}
+\includegraphics[width=1.0\textwidth]{../images/COR/COR.png}
 \caption{COR}
 \label{fig:COR}
 \end{figure}
 
-The plot in \ref{fig:COR} shows the co-efficient of restitution vs various impact velocities for a pure elastic sphere. From the plot it is clear that for higher impact velocities the co-efficient of restitution is higher and it saturates at a point closes to 1.0. The plot also shows a few valleys at regular intervals. There valleys can be further understood by performing a Fourier analysis on it. These valleys correspond to the eigen modes of the sphere. 
-
+The figure \ref{fig:COR} shows the co-efficient of restitution vs various impact velocities. We can see that the co-efficient of restitution increases as the impact velocities are increased. The bumps in the plot can be explained after performing a Fourier analysis on the models. The Fourier analysis shows that the bumps correspond to the 
 
 
 \section{Parametric Study}
