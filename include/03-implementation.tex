@@ -47,6 +47,158 @@ Subsequently, the dependent variables have to be computed in a so-called postpro
 \end{itemize}
 
 
+
+\subsection{Constitute Laws}
+
+Elastic Modulus And Poisson's Ratio In 1D Stress State
+The one-dimensional Hooke’s law relates 1D normal stress to 1D extensional strain through two material parameters the modulus of elasticity $E$, also called Young’s modulus and Poisson’s ratio $\nu$. The modulus of elasticity connects axial stress $\sigma$ to axial strain $\epsilon$:
+\begin{equation}
+\sigma = E\epsilon \label{Hooke's law}
+\end{equation}
+
+Poisson's ratio $\nu$ is defined as ratio of lateral strain to axial strain:
+\begin{equation}
+\nu = \abs{\frac{lateral strain}{axial strain}} = -\frac{lateral strain}{axial strain}
+\end{equation}
+The $-$ sign is introduced for convenience so that $\nu$ comes out positive. For structural materials $\nu$ lies in the range $0.0 \leq \nu <0.5$. For most metals $\nu \approx 0.25–0.35$. For concrete and ceramics, $\nu \approx 0.10$. For cork $\nu \approx 0$. For rubber, $\nu \approx 0.5$ to 3 places. A material for which $\nu = 0.5$ is called in-compressible.
+
+\subsubsection{Shear Modulus In 1D Stress State}
+The shear modulus $G$ connects a shear strain $\gamma$ to the corresponding shear stress $\tau$:
+\begin{equation}
+\tau = G\gamma \label{Bulk modulus}
+\end{equation} 
+
+"Corresponding" means that if $\gamma$ = $\gamma \_{xy}$, say, then $\tau = \tau_{xy}$, and similarly for the other shear components. The shear modulus is usually obtained from a torsion test. It turns out that the 3 material properties $E$, $\tau$ and $G$ for an elastic isotropic material are not independent, but are connected by the relations
+\begin{equation}
+G = \frac{E}{2(1 + \nu)} \label{isotropic}
+\end{equation}
+which means that if two of them are known by measurement, the third one can be obtained from the relations \ref{isotropic}. In practice the three properties are often measured independently, and the (approximate) verification of \ref{isotropic} gives an idea of how isotropic the material is.
+
+
+\subsubsection{Shear Modulus In 3D Stress State}
+We now generalize the foregoing equations to the three-dimensional case, still assuming that the
+material is elastic and isotropic. Consider a cube of material aligned with the axes ${x, y, z}$, as
+shown in Figure 5.9. Imagine that three tension tests, labeled (1), (2) and (3) respectively, are
+conducted along $x, y and z$, respectively. Pulling the material by applying $\sigma_{xx}$ along x will produce
+normal strains
+\begin{equation}
+\epsilon_{xx}^{(1)} = \frac{\sigma_{xx}}{E}, \quad
+\epsilon_{yy}^{(1)} = -\frac{\nu\sigma_{xx}}{E}, \quad
+\epsilon_{zz}^{(1)} = -\frac{\nu\sigma_{xx}}{E}
+\end{equation}
+
+Next, pull the material by $\sigma_{yy}$ along y to get the strains
+\begin{equation}
+\epsilon_{xx}^{(2)} = \frac{\nu\sigma_{yy}}{E}, \quad
+\epsilon_{yy}^{(2)} = -\frac{\sigma_{yy}}{E}, \quad
+\epsilon_{zz}^{(2)} = -\frac{\nu\sigma_{yy}}{E}
+\end{equation}
+Finally pull the material by $\sigma_{zz}$ along z to get
+\begin{equation}
+\epsilon_{xx}^{(3)} = \frac{\nu\sigma_{yy}}{E}, \quad
+\epsilon_{yy}^{(3)} = -\frac{\nu\sigma_{yy}}{E}, \quad
+\epsilon_{zz}^{(3)} = -\frac{\sigma_{yy}}{E}
+\end{equation}
+In the general case the cube is subjected to combined normal stresses $\sigma_{xx} ,\sigma_{yy} and \sigma_{zz}$ . Since we
+assumed that the material is linearly elastic, the combined strains can be obtained by superposition
+of the foregoing results:
+
+\begin{align}
+\begin{split}
+\epsilon_{xx} = \epsilon^{(1)}_{xx} + \nu\epsilon^{(2)}_{yy} + \nu\epsilon^{(3)}_{zz} = \frac{\sigma_{xx}}{E} - \frac{\nu\sigma_{yy}}{E} - \frac{\nu\sigma_{zz}}{E} = \frac{1}{E}(\sigma_{xx} - \nu\sigma_{yy} - \nu\sigma_{zz})\\
+\epsilon_{yy} = -\nu\epsilon^{(1)}_{xx} + \epsilon^{(2)}_{yy} + \nu\epsilon^{(3)}_{zz} = \frac{-\nu\sigma_{xx}}{E} + \frac{\nu\sigma_{yy}}{E} - \frac{\nu\sigma_{zz}}{E} = \frac{1}{E}(-\sigma_{xx} + \nu\sigma_{yy} - \nu\sigma_{zz})\\
+\epsilon_{zz} = -\nu\epsilon^{(1)}_{xx} + \nu\epsilon^{(2)}_{yy} - \epsilon^{(3)}_{zz} = \frac{-\nu\sigma_{xx}}{E} - \frac{\nu\sigma_{yy}}{E} + \frac{\nu\sigma_{zz}}{E} = \frac{1}{E}(-\nu\sigma_{xx} - \nu\sigma_{yy} + \sigma_{zz})
+\end{split}
+\label{eq:combined}
+\end{align}
+
+The shear strains and stresses are connected by the shear modulus as
+\begin{equation}
+\gamma_{xy} = \gamma_{yx} = \frac{\tau_{xy}}{G} = \frac{yx}{G}, \quad 
+\gamma_{yz} = \gamma_{zy} = \frac{\tau_{yz}}{G} = \frac{zy}{G}, \quad
+\gamma_{zx} = \gamma_{xz} = \frac{\tau_{zx}}{G} = \frac{xz}{G}
+\label{eq:shear}
+\end{equation}
+
+The equation \ref{eq:combined} and \ref{eq:shear}, can be expressed in matrix form
+\begin{equation}
+\begin{bmatrix}
+\epsilon_{xx}\\ 
+\epsilon_{yy}\\ 
+\epsilon_{zz}\\ 
+\gamma_{xy}\\ 
+\gamma_{yz}\\
+\gamma_{zx} 
+\end{bmatrix}
+=
+\begin{bmatrix}
+ &\frac{1}{E}  &-\frac{\nu}{E}  &-\frac{\nu}{E}  &0  &0  &0 \\ 
+ &-\frac{\nu}{E}  &\frac{1}{E}  &-\frac{\nu}{E}  &0  &0 &0 \\ 
+ &-\frac{\nu}{E}  &-\frac{\nu}{E}  &\frac{1}{E}  &0  &0 &0 \\ 
+ &0  &0  &0  &\frac{1}{G}  &0 &0 \\
+ &0  &0  &0  &0  &\frac{1}{G} &0 \\ 
+ &0  &0  &0  &0  &0 &\frac{1}{G}
+\end{bmatrix}
+\begin{bmatrix}
+\sigma_{xx}\\ 
+\sigma_{yy}\\ 
+\sigma_{zz}\\ 
+\tau_{xy}\\ 
+\tau_{yz}\\
+\tau_{zx} 
+\end{bmatrix}
+\label{eq:matrixform}
+\end{equation}
+
+
+\subsubsection{Stress Strain Relation}
+To get stresses if the strains are given, the most expedient method is to invert the matrix equation \ref{eq:matrixform}. This gives
+
+\begin{equation}
+\begin{bmatrix}
+\sigma_{xx}\\ 
+\sigma_{yy}\\ 
+\sigma_{zz}\\ 
+\tau_{xy}\\ 
+\tau_{yz}\\
+\tau_{zx} 
+\end{bmatrix}
+=
+\begin{bmatrix}
+ &\hat{E}(1-\nu)  &\hat{E}\nu  &\hat{E}\nu  &0  &0  &0 \\ 
+ &\hat{E}\nu  &\hat{E}(1-\nu)  &\hat{E}\nu  &0  &0 &0 \\ 
+ &\hat{E}\nu  &\hat{E}\nu  &\hat{E}(1-\nu)  &0  &0 &0 \\ 
+ &0  &0  &0  &G  &0 &0 \\
+ &0  &0  &0  &0  &G &0 \\ 
+ &0  &0  &0  &0  &0 &G
+\end{bmatrix}
+\begin{bmatrix}
+\epsilon_{xx}\\ 
+\epsilon_{yy}\\ 
+\epsilon_{zz}\\ 
+\gamma_{xy}\\ 
+\gamma_{yz}\\
+\gamma_{zx} 
+\end{bmatrix}
+\label{eq:stressstrainmat}
+\end{equation}
+
+Here $\hat{E}$ is an effective modulus modified by Poisson's ratio:
+\begin{equation}
+\hat{E} = \frac{E}{(1-2\nu)(1+\nu)}
+\end{equation}
+The matrix \ref{eq:stressstrainmat} written in long form is:
+\begin{align}
+\begin{split}
+\sigma_{xx} = \frac{E}{(1-2\nu)(1+\nu)}[(1-\nu)\epsilon_{xx} + \nu\epsilon_{yy}+\nu\epsilon_{zz}] \\
+\sigma_{yy} = \frac{E}{(1-2\nu)(1+\nu)}[\nu\epsilon_{xx} + (1-\nu)\epsilon_{yy}+\nu\epsilon_{zz}] \\
+\sigma_{zz} = \frac{E}{(1-2\nu)(1+\nu)}[\nu\epsilon_{xx} + \nu\epsilon_{yy}+(1-\nu)\epsilon_{zz}] \\
+\tau_{xy} = G\gamma_{xy}, \quad \tau_{yz} = G\gamma_{yz}, \quad \tau_{zx} = G\gamma_{zx}
+\end{split}
+\end{align}
+
+
+
 \subsubsection{Kinematics \cite{FEM}}
 
 The basic variables to describe the motion and deformation flexible
@@ -255,37 +407,32 @@ and vectors of FE structure, so equation can be written as
 \end{equation}
 
 
-
-
-
-
-
-
-
-
 \subsection{FEM Tools}
 
 
 
 \section{Simulation Setup}
 \subsection{Sphere vs Rigid Plane}
-In this simulation the collision of two viscoelastic spheres is studied. Both the spheres have the same magnitude of velocity but opposite directions. Therefore to simplify the model and computation, instead of simulation two spheres colliding, a single sphere colliding against a rigid plane can be simulated. This setup would be equivalent to the original problem as both the lspheres are the same in all aspects except for having different directions of velocities.
+In this simulation the collision of two elastic spheres is studied. Both the spheres have the same magnitude of velocity but opposite directions. As newtons third law of motion states "For every action, there is an equal and opposite reaction", to simplify the model and computation, instead of simulation two spheres colliding, a single sphere colliding against a rigid plane can be simulated. This setup would be equivalent to the original problem as both the spheres are the same in all aspects except for having different directions of velocities.
+
+$Image$
 
 \subsection{Symmetry}
 To further simplify the model, instead of considering the complete sphere, only a 2D semi-circular cross-section is considered. As the spheres are symmetric about the central rotational axis and the angle of contact is 90 degrees, there would not be any velocity in the Y direction. 
 
 \subsection{Mesh}
 
-\begin{figure}
+\begin{figure}[H]
     \centering
 	\includegraphics[scale=0.075]{../images/Mesh/Mesh.png}
 	\caption{Mesh}
 	\label{fig:mesh}
 \end{figure}
 
-The \ref{fig:mesh} shows the mesh used in the simulation. We can see that the mesh is finer at the bottom of the sphere as it is the point of contact and would undergo massive deformation during the impact. 
+To create this setup Abaqus CAE provides an option to create axis-symmetric model. The \ref{fig:mesh} shows the mesh used in the simulation. We can see that the mesh is finer at the bottom of the sphere as it is the point of contact and would undergo massive deformation during the impact. 
 
-\begin{figure}
+
+\begin{figure}[H]
     \centering
 	\includegraphics[scale=0.075]{../images/Mesh/Mesh_Bottom_Half_lowRes.png}
 	\caption{Bottom Half of Mesh}
@@ -297,7 +444,16 @@ The \ref{fig:mesh_bottom_half} shows an enlarged image of the bottom half of the
 
 \subsection{Rigid Plane}
 
-The figure shows the rigid plane against which the sphere would be colliding. 
+The figure shows the rigid plane against which the sphere would be colliding. This plane is an axisymmertic, analytical rigid surface.
+Analytical rigid surfaces are geometric surfaces with profiles that can be described with straight and curved line segments. These profiles can be swept along a generator vector or rotated about an axis to form a three-dimensional surface. An analytical rigid surface does not contribute to the rigid body's mass or inertia properties 
+
+\begin{figure}[H]
+    \centering
+	\includegraphics[scale=0.075]{../images/SimulationSetup/Plane.png}
+	\caption{Rigid Plane}
+	\label{fig:plane}
+\end{figure}
+
 
 \section{Measurement Quantities}
 
@@ -327,9 +483,13 @@ where $V$ is volume, $\sigma$ is stress and $\epsilon$ is strain.
 
 \subsection{Co-efficient of Restitution}
 
-The co-efficient of restitution describes the energy transfer 	 
-
+Measure the co-efficient of restitution is a measure of the restitution of kinetic energy after the collision of two objects. 
+The co-efficient of restitution is calculated by,
+\begin{equation}
+COR = \frac{Velocity\, after\, impact}{Velocity\, before\, impact}
+\end{equation}
 \section{Verification}
 
 To verify the correctness of the simulation setup, various meshes were tried. 
 As Abaqus CAE has an option to automatically choose a suitable timestep, the automatic option was chosen.
+The validity of considering a a 2D semi circle instead of a complete sphere was check by confirming the mass of the model in the to the calculated mass of the sphere of the same material.
