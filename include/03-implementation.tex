@@ -13,10 +13,12 @@ The finite element method (FEM) is a numerical technique for solving problems wh
 in terms of nodal values of a physical field which is sought. A continuous physical problem is transformed into a discretized finite element problem with unknown nodal values. For a linear problem a system of linear algebraic equations should be solved. Values inside finite elements can be recovered
 using nodal values. FEM then uses variational methods from the calculus of variations to approximate a solution by minimizing an associated error function.
 Two features of the FEM are worth to be mentioned:
-1) Piece-wise approximation of physical fields on finite elements provides good precision even with
+\begin{itemize}
+\item Piece-wise approximation of physical fields on finite elements provides good precision even with
 simple approximating functions (increasing the number of elements we can achieve any precision).
-2) Locality of approximation leads to sparse equation systems for a discretized problem. This helps to
+\item Locality of approximation leads to sparse equation systems for a discretized problem. This helps to
 solve problems with very large number of nodal unknowns.
+\end{itemize}
 
 \subsection{Steps in FEM}
 Finite Element Method can be generaliyed into these steps.
@@ -199,7 +201,7 @@ The matrix \ref{eq:stressstrainmat} written in long form is:
 
 
 
-\subsubsection{Kinematics \cite{FEM}}
+\subsubsection{Kinematics \citep{FEM}}
 
 The basic variables to describe the motion and deformation flexible
 bodies are Deformation, Velocity and Acceleration. 
@@ -210,7 +212,14 @@ of body at initial time $t_{0}$ (material configuration)
 and position vector x and configuration $\beta_{t}$
 at certain time t (spatial configuration).
 
-{[}5{]}configurations and motion of a body (figure 2.1)
+\begin{figure}[H]
+    \centering
+	\includegraphics[scale=0.075]{../images/potato.png}
+	\caption{Mesh}
+	\label{fig:potato}
+\end{figure}
+
+configurations and motion of a body (\ref{fig:potato})
 
 We define a nonlinear deformation map $\varphi$, which describes
 the motion of the body. The deformation map has to be unique, continuous
@@ -245,7 +254,7 @@ u(X,t)=x(X,t)-X\label{Lagrangian displacement field}
 
 
 
-\subsubsection{Kinetics \cite{FEM}}
+\subsubsection{Kinetics \citep{FEM}}
 
 The derivation of the kinetic formulation for FE structure is based
 upon above principle of structural displacement and D\textquoteright Alembert
@@ -276,11 +285,11 @@ the first summand of Eq.(\ref{D'Alembert principle}) leads to the
 following series of equations: 
 
 \begin{equation}
-\int_{V_{0}}\delta u^{T}\rho_{0}\textbf{$\ddot{u}$}dV_{0}\,\,=\delta z_{F}^{T}\stackrel[e=1]{n_{E}}{\sum}\left(T^{e^{T}}\int_{V_{0}^{e}}N^{eT}(x)\rho_{0}^{e}(x)N^{e}(x)dVT^{e}\right)\ddot{z}_{F}
+\int_{V_{0}}\delta u^{T}\rho_{0}\textbf{$\ddot{u}$}dV_{0}\,\,=\delta z_{F}^{T}\sum_{e=1}^{n_{E}}{\sum}\left(T^{e^{T}}\int_{V_{0}^{e}}N^{eT}(x)\rho_{0}^{e}(x)N^{e}(x)dVT^{e}\right)\ddot{z}_{F}
 \end{equation}
 
 \begin{equation}
-\mathrm{=\delta z_{F}^{T}\underset[e=1]{n_{E}}{\sum}{T^{e}}^{T}M^{e}T^{e}\ddot{z}_{F}}
+\mathrm{=\delta z_{F}^{T}\sum_{e=1}^{n_{E}}{\sum}{T^{e}}^{T}M^{e}T^{e}\ddot{z}_{F}}
 \end{equation}
 
 \begin{equation}
@@ -407,7 +416,7 @@ and vectors of FE structure, so equation can be written as
 \end{equation}
 
 
-\subsection{FEM Tools}
+%\subsection{FEM Tools}
 
 
 
@@ -415,8 +424,10 @@ and vectors of FE structure, so equation can be written as
 \subsection{Sphere vs Rigid Plane}
 In this simulation the collision of two elastic spheres is studied. Both the spheres have the same magnitude of velocity but opposite directions. As newtons third law of motion states "For every action, there is an equal and opposite reaction", to simplify the model and computation, instead of simulation two spheres colliding, a single sphere colliding against a rigid plane can be simulated. This setup would be equivalent to the original problem as both the spheres are the same in all aspects except for having different directions of velocities.
 
-$Image$
-
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{../images/SimulationSetup/sphere2D.png}
+\end{figure}
 \subsection{Symmetry}
 To further simplify the model, instead of considering the complete sphere, only a 2D semi-circular cross-section is considered. As the spheres are symmetric about the central rotational axis and the angle of contact is 90 degrees, there would not be any velocity in the Y direction. 
 
@@ -449,11 +460,21 @@ Analytical rigid surfaces are geometric surfaces with profiles that can be descr
 
 \begin{figure}[H]
     \centering
-	\includegraphics[scale=0.075]{../images/SimulationSetup/Plane.png}
+	\includegraphics[scale=0.25]{../images/SimulationSetup/Plane.png}
 	\caption{Rigid Plane}
 	\label{fig:plane}
 \end{figure}
 
+
+\subsection{Assembly}
+
+The final assembly is of the sphere in contact with the rigid plane as shows in \ref{fig:assembly}. The sphere is given a velocity in the $-y$ direction. The starting point of the simulation is when the sphere is in contact with the plane and is about the collide with the plane.
+\begin{figure}[H]
+    \centering
+	\includegraphics[scale=0.25]{../images/SimulationSetup/Assembly.png}
+	\caption{Assembly}
+	\label{fig:assembly}
+\end{figure}
 
 \section{Measurement Quantities}
 
@@ -473,7 +494,7 @@ Kinetic Energy(KE) = \frac{mv^{2}}{2}
 
 \subsection{Strain Energy}
 
-The strain energy is the energy stored by a system undergoing deformation. During a collision, a part of the kinetic energy is converted into strain energy. This strain energy can also be observed as vibration on the body of the object. When the load is removed,
+The strain energy is the energy stored by a system undergoing deformation. During a collision, a part of the kinetic energy is converted into strain energy. This conversion of kinetic energy to strain energy is ignored due to the quasi static assumptions . This strain energy can also be observed as vibration on the body of the object. When the load is removed,
 
 \begin{equation}
 Strain Energy(U) = \frac{V\sigma\epsilon}{2}
@@ -483,7 +504,7 @@ where $V$ is volume, $\sigma$ is stress and $\epsilon$ is strain.
 
 \subsection{Co-efficient of Restitution}
 
-Measure the co-efficient of restitution is a measure of the restitution of kinetic energy after the collision of two objects. 
+The co-efficient of restitution is an effective method of understanding the loss of energy in a body during collisions. The co-efficient of restitution is a measure of the restitution of kinetic energy after the collision of two objects. 
 The co-efficient of restitution is calculated by,
 \begin{equation}
 COR = \frac{Velocity\, after\, impact}{Velocity\, before\, impact}

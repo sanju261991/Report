@@ -3,11 +3,16 @@ A level-1 auxiliary file: include/00-1-title.aux
 A level-1 auxiliary file: include/00-2-declaration.aux
 A level-1 auxiliary file: include/00-3-abstract.aux
 A level-1 auxiliary file: include/01-introduction.aux
-A level-1 auxiliary file: include/02-background.aux
 A level-1 auxiliary file: include/03-implementation.aux
 A level-1 auxiliary file: include/04-results.aux
 A level-1 auxiliary file: include/05-conclusion.aux
 The style file: plainnat.bst
 Database file #1: thesis.bib
+Warning--empty publisher in landau
+Warning--empty year in landau
+Warning--empty year in landau
+Warning--empty publisher in aelove
+Warning--empty year in aelove
+Warning--empty year in aelove
 Warning--empty year in FEM
-(There was 1 warning)
+(There were 7 warnings)

@@ -1,4 +1,4 @@
-\begin{thebibliography}{2}
+\begin{thebibliography}{6}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -12,9 +12,29 @@ Jacques Duran.
 \newblock Springer, 1999.
 \newblock ISBN 0387986561.
 
+\bibitem[Landau and Lifshitz()]{landau}
+L.~D. Landau and E.~M. Lifshitz.
+\newblock \emph{Theory of Elasticity}.
+
+\bibitem[Love()]{aelove}
+A.~E.~H. Love.
+\newblock \emph{A treatise on the mathematical theory of elasticity}.
+
 \bibitem[Mergheim()]{FEM}
 Julia Mergheim.
 \newblock Lecture notes nonlinear finite element.
 \newblock LTM, FAU Erlangen.
+
+\bibitem[Muller and Pöschel(2011)]{muller}
+Patric Muller and Thorsten Pöschel.
+\newblock \emph{Collision of viscoelastic spheres: Compact expressions for the
+  coefficient of normal restitution}.
+\newblock Physical Review E 84, 021302, 2011.
+
+\bibitem[Pöschel and Schwager(2005)]{por}
+Thorsten Pöschel and T.~Schwager.
+\newblock \emph{Computational Granular Dynamics - Models and Algorithms}.
+\newblock Springer, 2005.
+\newblock ISBN 978-3-540-27720-0.
 
 \end{thebibliography}
