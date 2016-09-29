@@ -21,12 +21,12 @@ solve problems with very large number of nodal unknowns.
 \end{itemize}
 
 \subsection{Steps in FEM}
-Finite Element Method can be generaliyed into these steps.
+Finite Element Method can be generalised into these steps.
 \begin{itemize}
  
  \item The physical problem has to be defined. All the desired results and the geometry of the problem have to be specified.
 
-\item The mathematical model has to be formulated
+\item The mathematical model has to be formulated.
 The physical problem has to be formulated as an (initial) boundary value problem, e.g. by means of partial differential equations with boundary and, if required, initial conditions.
 
 \item The FE model has to be setup, which means that the mathematical model has to be discretised and the equations are solved. The structure is subdivided into finite elements, the solution is approximated element-wise and computed at the nodes of these elements. By this procedure, the differential equations are transferred into a system of algebraic equations
@@ -50,7 +50,7 @@ Subsequently, the dependent variables have to be computed in a so-called postpro
 
 
 
-\subsection{Constitute Laws}
+\subsection{Constitutive Laws}
 
 Elastic Modulus And Poisson's Ratio In 1D Stress State
 The one-dimensional Hooke’s law relates 1D normal stress to 1D extensional strain through two material parameters the modulus of elasticity $E$, also called Young’s modulus and Poisson’s ratio $\nu$. The modulus of elasticity connects axial stress $\sigma$ to axial strain $\epsilon$:
@@ -257,7 +257,7 @@ u(X,t)=x(X,t)-X\label{Lagrangian displacement field}
 \subsubsection{Kinetics \citep{FEM}}
 
 The derivation of the kinetic formulation for FE structure is based
-upon above principle of structural displacement and D\textquoteright Alembert
+on the above described principle of structural displacement and D\textquoteright Alembert
 principle in Lagrangian formulation.
 
 According to D\textquoteright Alembert principle the sum of the virtual
@@ -309,8 +309,7 @@ represents mass matrix for each element of FE structure.
 represents mass matrix for entire FE structure.
 
 The substitution of Eq.(\ref{Lagrangian displacement field}) and
-linearized strain-displacement relation in the second summand of Eq.(\ref{D'Alembert principle})leads
-to the following:
+linearized strain-displacement relation in the second summand of Eq.(\ref{D'Alembert principle}) leads to the following:
 
 
 \begin{equation}
@@ -480,7 +479,7 @@ The final assembly is of the sphere in contact with the rigid plane as shows in 
 
 \subsection{Displacement}
 
-To measure the displacement of the body, the displacement of the center of mass was measured. The center of mass of the of a sphere is located at the sphere. The figure shows the center of the 2D semi-circle which was considered as the sphere of the model. To measure the displacement center of mass of the sphere, the displacement of center of the semicircle was considered.
+To measure the displacement of the body, the displacement of the center of mass was measured. The center of mass of the of a sphere is located at the geometric centre of the sphere. The figure shows the center of the 2D semi-circle which was considered as the sphere of the model. To measure the displacement center of mass of the sphere, the displacement of center of the semicircle was considered.
 
 \subsection{Kinetic Energy}
 
@@ -502,12 +501,12 @@ Strain Energy(U) = \frac{V\sigma\epsilon}{2}
 
 where $V$ is volume, $\sigma$ is stress and $\epsilon$ is strain.
 
-\subsection{Co-efficient of Restitution}
+\subsection{Coefficient of Restitution}
 
 The co-efficient of restitution is an effective method of understanding the loss of energy in a body during collisions. The co-efficient of restitution is a measure of the restitution of kinetic energy after the collision of two objects. 
 The co-efficient of restitution is calculated by,
 \begin{equation}
-COR = \frac{Velocity\, after\, impact}{Velocity\, before\, impact}
+COR = \frac{-Velocity\, after\, impact}{Velocity\, before\, impact}
 \end{equation}
 \section{Verification}
 

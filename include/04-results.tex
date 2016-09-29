@@ -97,7 +97,7 @@ As we study the loss of kinetic energy to vibrations let's first consider a very
 \label{fig:force}
 \end{figure}
 
-Now considering a harder material, i.e. with $Youngs Modulus(E)$ of $9.3GPa$. This Youngs Modulus was chosen as it was neither to hard nor to soft and had the vibration visible. The plots in \ref{fig:def} show the contact force between the sphere and the rigid plane. The plots shows that as the impact velocities are higher, the difference between the simulation data and the theoretical data is more visible. This errors is due the quasi static assumptions.
+Now considering a harder material, i.e. with $Youngs Modulus(E)$ of $9.3GPa$. This Youngs Modulus was chosen as it was neither to hard nor to soft and had the vibration visible. The plots in \ref{fig:force} show the contact force between the sphere and the rigid plane. The plots shows that as the impact velocities are higher, the difference between the simulation data and the theoretical data is more visible. This errors is due the quasi static assumptions.
 
 
 %%%%%%%%%%%%%%%%%%COM%%%%%%%%%%%%%%%%%%%
@@ -150,10 +150,10 @@ The plots in \ref{fig:def} show displacement of the center point of the sphere w
 \end{figure}
 \begin{figure}[H]
 \includegraphics[width=1.0\textwidth]{../images/KE/KEzoomed_pdf.pdf}
-\caption{Kinetic Energy contact is broken}
+\caption{Kinetic Energy contact after impact}
 \label{fig:KEzoomed}
 \end{figure}
-The figure \ref{fig:KE} shows Kinetic Energy vs Time for the impact velocity of $0.15m/s$. It is clear that the kinetic energy decreases in the beginning of the impact and increases towards the end of the impact. When observed carefully, fluctuations can be observed in the plot after the impact is completed as shows in \ref{fig:KEzoomed}. As disscussed in the previous paragraphs, this is because a part of the kinetic energy is converted into strain energy which cause vibrations in within the model.
+The figure \ref{fig:KE} shows Kinetic Energy vs Time for the impact velocity of $0.15m/s$. It is clear that the kinetic energy decreases in the beginning of the impact and increases towards the end of the impact. When observed carefully, fluctuations can be observed in the plot after the impact is completed as shows in \ref{fig:KEzoomed}. As discussed in the previous paragraphs, this is because a part of the kinetic energy is converted into strain energy which cause vibrations in within the model.
 
 A similar trend is also visible in the plot of the strain energy of the sphere. It is clear from \ref{fig:SEzoomed}, that after the collision is complete, the body still possesses a small amount of strain energy.
 
@@ -210,7 +210,7 @@ The modes shown in \ref{fig:modes} can affect the velocity of the sphere after t
 
 \paragraph{Breathing Mode}
 
-Using equation form the book "A Treatise on the Mathematical Theory of Elasticity" by A.E.H. Love, chapter 11:Vibration of spheres \citep{aelove}.
+Using equation from the book "A Treatise on the Mathematical Theory of Elasticity" by A.E.H. Love, chapter 11:Vibration of spheres \citep{aelove}.
 
 \begin{equation}
 \begin{split}
@@ -219,7 +219,7 @@ v_{dil} = \sqrt{\frac{\lambda + 2\mu}{\rho}}
 \end{split}
 \label{eq:eigen}
 \end{equation} 
-where $\frac{\pi}{h_{a}}$ is the ratio of the period of oscillation of the time taken by a wave of dilation to travel over a  distance equal to the diameter of the sphere, $v_{dil}$ is the velocity of the wave of dilation, $R$ is the radius of the sphere, $T_{os}$ is the time period of 1 oscillation, $\lambda and \mu$ are the lame's constants and $\rho$ is the mass density.
+where $\frac{\pi}{h_{a}}$ is the ratio of the period of oscillation of the time taken by a wave of dilation to travel over a  distance equal to the diameter of the sphere, $v_{dil}$ is the velocity of the wave of dilation, $R$ is the radius of the sphere, $T_{os}$ is the time period of 1 oscillation, $\lambda$ and $\mu$ are the lame's constants and $\rho$ is the mass density.
 
 \begin{align}
 T_{os} = \frac{1}{F} = \frac{2R}{v_{dil}} \frac{\pi}{h_{a}} = \frac{2R}{v_{dil}} \frac{1}{0.8160}
@@ -244,7 +244,7 @@ v_{dil} = \sqrt{\frac{6E}{5\rho}}
 
 we now have a equation for $T_{os}$
 \begin{align}
-T = 2R \sqrt{\frac{5\rho}{6E}} \frac{1}{0.8160}
+T_{os} = 2R \sqrt{\frac{5\rho}{6E}} \frac{1}{0.8160}
 \end{align}
 
 For $R=0.01m, E=9.3Gpa$ and $\rho=900kg/m^{3}$
@@ -255,7 +255,7 @@ F = \frac{1}{T} = 143671.625591 Hz
 
 
 \paragraph{Prolate Oblate Mode}
-Again using equation form the book "A Treatise on the Mathematical Theory of Elasticity" by A.E.H. Love, chapter 11:Vibration of spheres \citep{aelove}.
+Again using equation from the book "A Treatise on the Mathematical Theory of Elasticity" by A.E.H. Love, chapter 11:Vibration of spheres \citep{aelove}.
 
 \begin{align}
 \frac{\kappa_{a}}{\pi} = \frac{\frac{2R}{v_{dist}}}{T_{os}} = 1.8346
@@ -281,6 +281,7 @@ F = \frac{1}{T} = 186492.602141Hz
 \end{align}
 
 \begin{figure}[H]
+\centering
 \includegraphics[scale=0.5]{../images/fft/spectrummodes.png}
 \caption{Fourier Transform of Strain Energy}
 \label{fig:spectrum}
@@ -289,6 +290,7 @@ F = \frac{1}{T} = 186492.602141Hz
 Now performing a fourier transform on the data of the strain energy remaining in the sphere after the impact is complete the frequency spectrum shown in \ref{fig:spectrum} was obtained.
 
 \begin{figure}[H]
+\centering
 \includegraphics[scale=0.5]{../images/fft/oscillations.png}
 \caption{Number of oscillation during contact}
 \label{fig:oscillations}
@@ -325,7 +327,7 @@ The simulation was performed for a range of Youngs Modulii ranging from $1e8N/m^
 \label{fig:CORDiffDia}
 \end{figure}
 
-The simulation was also performed for various spheres of diameters of $0.001m$, $0.01m$ and $0.1m$. Considering the equations for coefficient of restitution from \citep{muller} .
+The simulation was also performed for various spheres of diameters of $0.001m$, $0.01m$ and $0.1m$. Considering the equations for coefficient of restitution from \citep{muller} for viscoelastic spheres .
 
 \begin{align*}
 \varepsilon = 1+ \sum_{k=0}^{\infty} h_{k}(\beta^{\frac{1}{2}} v^{\frac{1}{10}})^{k} 

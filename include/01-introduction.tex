@@ -54,7 +54,7 @@ In the most common version, the trajectories of granulates are determined by num
 
 \subsubsection{Event Driven Model}
 
-In Event Driven Models, the flow of the algorithm is ditermined by events such as collisions in the case of simulation of granular materials. The trajectory and velocity of granulates after collisions is determined with factors such as co-efficient of restitution.  
+In Event Driven Models, the flow of the algorithm is determined by events such as collisions in the case of simulation of granular materials. The trajectory and velocity of granulates after collisions is determined with factors such as coefficient of restitution.  
 
 \subsubsection{Discrete Element Method}
 
@@ -64,7 +64,7 @@ DEMs are closely related to Molecular Dynamics, but also includes rotational deg
 
 \subsubsection{Hertz Theory \citep{landau}}
 
-The oldest and most influential model of contacts mechanics which can be used in Force based models is the Hertz contact theory. In Hertz’s classical theory of contact, he focused primarily on non-adhesive contact where no tension force is allowed to occur within the contact area. The following assumptions are made in determining the solutions of Hertzian contact problems:
+The oldest and most influential model of contacts mechanics which can be used in force based models is the Hertz contact theory. In Hertz’s classical theory of contact, he focused primarily on non-adhesive contact where no tension force is allowed to occur within the contact area. The following assumptions are made in determining the solutions of Hertzian contact problems:
 
 \begin{itemize}
 \item The strains are small and within the elastic limit.
@@ -89,7 +89,7 @@ z = \kappa_{\alpha\beta}x_{\alpha}x_{beta}
 \label{eq:contacteq1}
 \end{equation}
 
-where summation is understood over the values 1, 2, of the repeated suffixes $\alpha, \beta (x_{1} - x, x; = y)$, and $\kappa_{\alpha\beta}$ is a symmetrical tensor of rank two, which characterizes the curvature of the surface: the principal values of the tensor $\kappa_{\alpha\beta}$ are $\frac{1}{2R_{1}} and \frac{1}{2R_{2}}$, where $R$; and $R_{2}$ are the principal radii of curvature
+where summation is understood over the values 1, 2, of the repeated suffixes $\alpha, \beta (x_{1} - x, x; = y)$, and $\kappa_{\alpha\beta}$ is a symmetrical tensor of rank two, which characterizes the curvature of the surface: the principal values of the tensor $\kappa_{\alpha\beta}$ are $\frac{1}{2R_{1}}$ and $\frac{1}{2R_{2}}$, where $R$ and $R_{2}$ are the principal radii of curvature
 of the surface at the point of contact. A similar relation for the surface of the other body near the point of contact can be written
 
 \begin{equation}
@@ -255,7 +255,7 @@ P_{z}(x,y) = \frac{3F}{2\pi ab} \sqrt{\Big( 1 - \frac{x^{2}}{a^{2}} - \frac{y^{2
 
 This formula gives the distribution of pressure over the tree of the region of
 contact. It may be pointed out that the pressure at the centre of this region
-is $\frac{3}{2}$ times the men pressure $\frac{F}{\pi ab}$.
+is $\frac{3}{2}$ times the mean pressure $\frac{F}{\pi ab}$.
 
 Substituting \ref{eq:contactforce} in equation \ref{eq:pressuredistribution} and replacing the resulting integral
 in accordance with \ref{eq:integrated_phi}, we obtain
@@ -329,7 +329,7 @@ equation \ref{eq:h}, the right-hand side is multiplied by $\alpha$, and so $h$ m
 \subsubsection{Collision of two spheres}
 
 
-Consider a system of co-ordinates in which the center of mass of the two spheres is at rest, the energy before the collision is equal to the kinetic energy of the relative motion $\frac{1}{2}mv^{2}$, where $v$ is the relative velocity of the colliding spheres and $\mu = \frac{m_{1}m_{2}}{m_{1} + m_{2}}$ their reduced mass. During the collision, the total energy is the sum of the kinetic energy, which may be written $\frac{1}{2}\mu h^{2}$, and the potential energy \ref{eq:potential}. By, the law of conservation of energy we have
+Consider a system of coordinates in which the center of mass of the two spheres is at rest, the energy before the collision is equal to the kinetic energy of the relative motion $\frac{1}{2}mv^{2}$, where $v$ is the relative velocity of the colliding spheres and $\mu = \frac{m_{1}m_{2}}{m_{1} + m_{2}}$ their reduced mass. During the collision, the total energy is the sum of the kinetic energy, which may be written $\frac{1}{2}\mu h^{2}$, and the potential energy \ref{eq:potential}. By, the law of conservation of energy we have
 
 \begin{equation}
 \mu \Big( \frac{dh}{dt} \Big) ^{2} + kh^{\frac{5}{2}} = \mu v^{2}, \quad k=\frac{4}{5D}\sqrt{\frac{RR'}{R+R'}}
