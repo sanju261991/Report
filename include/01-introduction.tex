@@ -24,16 +24,16 @@ Granular materials are very important in many industrial processes, in natural s
 
 \section{Particle Simulations of Granulates}
 
-\subsection{Why to simulate? \citep{por}}
+\subsection{Why to simulate? }
 
 \begin{figure}[H]
 \includegraphics[scale=0.25]{../images/Intro/simulation.jpg}
 \includegraphics[scale=0.25]{../images/Intro/simulation1.jpg}
 \end{figure}
 
-There are many reasons to simulate granular materials. Conducting experiments with engineering devices are generally time consuming, dangerous and expensive, as they requires specialized equipment, They are extensively used in industries and are an important part of everyday life. Since there is no comprehensive theory on granular materials which reliable predict the behavior of such materials in technical devices, numerical simulations can be used to predict and to optimize the function of machinery in powder technology before the machine is built. Hence it makes sense to use the power of computers to simulate granular material.
+There are many reasons to simulate granular materials \citep{por}. Conducting experiments with engineering devices are generally time consuming, dangerous and expensive, as they requires specialized equipment, They are extensively used in industries and are an important part of everyday life. Since there is no comprehensive theory on granular materials which reliable predict the behavior of such materials in technical devices, numerical simulations can be used to predict and to optimize the function of machinery in powder technology before the machine is built. Hence it makes sense to use the power of computers to simulate granular material.
 
-\subsection{Models of simulation}
+\subsection{Methods of simulation}
 
 A few of the models used in simulation of granular materials are
 
@@ -50,15 +50,17 @@ In the most common version, the trajectories of granulates are determined by num
 \ddot{\vec{r_{i}}} = \frac{1}{m_{i}} \vec{F_{i}}(\vec{r_{1}}, \vec{v_{1}},.....,\vec{r_{N}},\vec{v_{N}})
 \end{align*}
 
+\item \textbf{Discrete Element Method}
+
+DEMs are closely related to Molecular Dynamics, but also includes rotational degrees-of-freedom as well as stateful contact and often complicated geometries. Discrete Elements methods are generally computationally intensive, therefore limiting the length of a simulation or number of particles.
+
+
 \end{itemize}
 
 \subsubsection{Event Driven Model}
 
 In Event Driven Models, the flow of the algorithm is determined by events such as collisions in the case of simulation of granular materials. The trajectory and velocity of granulates after collisions is determined with factors such as coefficient of restitution.  
 
-\subsubsection{Discrete Element Method}
-
-DEMs are closely related to Molecular Dynamics, but also includes rotational degrees-of-freedom as well as stateful contact and often complicated geometries. Discrete Elements methods are generally computationally intensive, therefore limiting the length of a simulation or number of particles.
 
 \section{Particle Models}
 
@@ -80,7 +82,7 @@ The oldest and most influential model of contacts mechanics which can be used in
 \label{fig:hertzfigure}
 \end{figure}
 
-Let two solid bodies be in contact at a point which is not a singular point on either surface. \ref{fig:hertzfigure} shows a cross-section of the two surfaces near the point of contact $O$. The surfaces have a common tangent plane at $O$, which we take as the any-plane. We regard the positive z-direction as being into either body (i.e. in opposite directions for the two bodies) and denote the corresponding co-ordinates by $z$ and $z'$.
+Let two solid bodies be in contact at a point which is not a singular point on either surface. Figure \ref{fig:hertzfigure} shows a cross-section of the two surfaces near the point of contact $O$. The surfaces have a common tangent plane at $O$, which we take as the any-plane. We regard the positive z-direction as being into either body (i.e. in opposite directions for the two bodies) and denote the corresponding co-ordinates by $z$ and $z'$.
 
 Near a point of ordinary contact with the xy—plane, the equation of the surface can be written
 
@@ -98,9 +100,7 @@ z' = \kappa'_{\alpha\beta}x_{\alpha}x_{beta}
 \end{equation}
 
 Let us now assume that the two bodies are pressed together by applied
-forces, and approach a short distance $h(Hertz’s problem)$. Th a deformation occurs near the original point of contact, and the two bodies will be in contact over a small but finite portion of their surfaces. Let $u$, and $u'$, be the
-
-components (along the $z$ and $z'$ axes respectively) of the corresponding displacement vectors for points on the surfaces of the two bodies. The broken lines in \ref{fig:hertzfigure} show the surfaces as they would be in the absence of any deformation, while the continuous lines show the surfaces of the deformed bodies; the letters $z$ and $z’$ denote the distances given by equations \ref{eq:contacteq1}
+forces, and approach a short distance $h(Hertz’s problem)$. The deformation occurs near the original point of contact, and the two bodies will be in contact over a small but finite portion of their surfaces. Let $u$, and $u'$, be the components (along the $z$ and $z'$ axes respectively) of the corresponding displacement vectors for points on the surfaces of the two bodies. The broken lines in figure \ref{fig:hertzfigure} show the surfaces as they would be in the absence of any deformation, while the continuous lines show the surfaces of the deformed bodies; the letters $z$ and $z’$ denote the distances given by equations \ref{eq:contacteq1}
 and \ref{eq:contacteq2}. It is seen at once from the figure that the equation
 
 \begin{equation}
@@ -119,19 +119,13 @@ contact, we have
 \begin{equation}
 z+z'+u_{z}+u'_{z} > h
 \end{equation}
-We choose the x and y axes to be the principal axes of the tensor $\kappa_{\alpha\beta}+\kappa'_{\alpha\beta}$. Denoting the principal values of this tensor by $A$ and $B$, we can rewrite
-
-%%%%%%%%%%%%
-
-equation \ref{eq:contacteqcombined} as
+We choose the x and y axes to be the principal axes of the tensor $\kappa_{\alpha\beta}+\kappa'_{\alpha\beta}$. Denoting the principal values of this tensor by $A$ and $B$, we can rewrite equation \ref{eq:contacteqcombined} as
 \begin{equation}
 Ax_{2}+By_{2}+u_{z}+u'_{z} = h
 \label{eq:rewriteAB}
 \end{equation}
 
-We denote by $P_{z}(x,y)$ the pressure between the two deformed bodies at points in the region of contact; outside this region, of course $P_{z} = 0$. To determine the relation between $P$. and the displacements $u_{z}, u'_{z}$,
-
- we can with sufficient accuracy regard the surfaces as plane and use the formula \citep{landau}.
+We denote by $P_{z}(x,y)$ the pressure between the two deformed bodies at points in the region of contact; outside this region, of course $P_{z} = 0$. To determine the relation between $P_{z}$ and the displacements $u_{z}, u'_{z}$, we can with sufficient accuracy regard the surfaces as plane and use the formula \citep{landau}.
  
 \begin{equation}
 \begin{split}
@@ -174,12 +168,12 @@ Substituting the expressions \ref{eq:normalpressure} in \ref{eq:rewriteAB}, we o
 \frac{1}{\pi}\Big(\frac{1-\sigma^{2}}{E}+\frac{1-\sigma'^{2}}{E'}\Big)\int\int\frac{P_{z}(x',y')}{r}dx'dy' = h-Ax^{2}-By^{2}
 \label{eq:pressuredistribution}
 \end{equation}
-This integral equation determines the distribution of the pressure $P_{z}$. over the region of contact. Its solution can be found by analogy with the following results of potential theory. The idea of using this analogy arises as follows:
-firstly ,the integral on the left-hand side of equation \ref{eq:pressuredistribution} is of type commonly found in potential theory, where such integrals give the potential of a
+This integral equation determines the distribution of the pressure $P_{z}$ over the region of contact. Its solution can be found by analogy with the following results of potential theory. The idea of using this analogy arises as follows:
+firstly, the integral on the left-hand side of equation \ref{eq:pressuredistribution} is of type commonly found in potential theory, where such integrals give the potential of a
 charge distribution; secondly, the potential inside a uniformly charged ellipsoid is a quadratic function of the co-ordinates.
 
 If the ellipsoid $\frac{x^{2}}{a^{2}}+\frac{y^{2}}{b^{2}}+\frac{z^{2}}{c^{2}}$ is uniformly charged (with volume
-charged density $\sigma$),the potential in the ellipsoid is given by
+charged density $\sigma$), the potential in the ellipsoid is given by
 
 
 \begin{equation}
@@ -321,7 +315,7 @@ the substitution
 a^{2} \rightarrow \alpha a^{2}, \quad b^{2} \rightarrow \alpha b^{2}, \quad F \rightarrow \alpha^{\frac{3}{2}}F
 \end{align*}
 where $\alpha$ is an arbitrary constant, equations (9.12) remain  In
-equation \ref{eq:h}, the right-hand side is multiplied by $\alpha$, and so $h$ must be replaced by $\alpha h$ if this equation is to remain unchanged. Hence it follows that $F$ must be proportional to $h^{\frac{3}{2}}$
+equation \ref{eq:h}, the right-hand side is multiplied by $\alpha$, and so $h$ must be replaced by $\alpha h$ if this equation is to remain unchanged. Hence it follows that $F$ must be proportional to $h^{\frac{3}{2}}$.
 
 
 
@@ -376,7 +370,9 @@ substituting the above values in \ref{eq:time} and considering $m_{1}=\frac{4}{3
 
 \section{Aims}
 
+The aim of this thesis is to check validity of quasi static assumptions by considering the collision of two spheres of same material and radius. The quasi-static approximation implies that
 \begin{itemize}
-\item Check validity of quasi static assumptions.
-\item Verify loss of kinetic energy to vibrations after impact is complete.
+\item The characteristic deformation rate is much smaller than the speed of sound in the system.
+\item The microscopic relaxation time of the particle's material is negligibly small as compared to the duration of the impact.
 \end{itemize}
+One way to validate the approximations is by calculating the coefficient of restitution of the sphere. The coefficient of restitution would also give an idea of the conversion of kinetic energy to vibrations after impact is complete, which is ignored by the quasi static assumptions.

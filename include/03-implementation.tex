@@ -21,7 +21,7 @@ solve problems with very large number of nodal unknowns.
 \end{itemize}
 
 \subsection{Steps in FEM}
-Finite Element Method can be generalised into these steps.
+Finite Element Method can be generalized into these steps.
 \begin{itemize}
  
  \item The physical problem has to be defined. All the desired results and the geometry of the problem have to be specified.
@@ -40,7 +40,7 @@ For a static stress analysis, the unknown nodal values subsumed in u are the nod
 u = K^{-1}.f
 \end{equation}
 
-Subsequently, the dependent variables have to be computed in a so-called postprocessing step. For a stress analysis the strains, the stresses, equivalent stresses and further variables are derived from the nodal displacement values and are usually displayed graphically.
+Subsequently, the dependent variables have to be computed in a so-called post-processing step. For a stress analysis the strains, the stresses, equivalent stresses and further variables are derived from the nodal displacement values and are usually displayed graphically.
 
 \item The FE model yields a numerical solution which is an approximation of the exact solution of the mathematical problem. It has to be verified that the numerical solution is accurate enough and, if not, the FE model has to be improved. A more accurate solution can be obtained by choosing a larger number of nodes, which results in smaller finite elements. This, however, leads to higher computational effort such that an FE solution always represents a reasonable compromise between accuracy and computational effort.
 
@@ -52,8 +52,8 @@ Subsequently, the dependent variables have to be computed in a so-called postpro
 
 \subsection{Constitutive Laws}
 
-Elastic Modulus And Poisson's Ratio In 1D Stress State
-The one-dimensional Hooke’s law relates 1D normal stress to 1D extensional strain through two material parameters the modulus of elasticity $E$, also called Young’s modulus and Poisson’s ratio $\nu$. The modulus of elasticity connects axial stress $\sigma$ to axial strain $\epsilon$:
+Elastic Modulus and Poisson's Ratio In 1D Stress State
+The one-dimensional Hooke’s law relates 1D normal stress to 1D extensional strain through two material parameters the modulus of elasticity $E$, also called Young's modulus and Poisson's ratio $\nu$. The modulus of elasticity connects axial stress $\sigma$ to axial strain $\epsilon$:
 \begin{equation}
 \sigma = E\epsilon \label{Hooke's law}
 \end{equation}
@@ -62,15 +62,16 @@ Poisson's ratio $\nu$ is defined as ratio of lateral strain to axial strain:
 \begin{equation}
 \nu = \abs{\frac{lateral strain}{axial strain}} = -\frac{lateral strain}{axial strain}
 \end{equation}
-The $-$ sign is introduced for convenience so that $\nu$ comes out positive. For structural materials $\nu$ lies in the range $0.0 \leq \nu <0.5$. For most metals $\nu \approx 0.25–0.35$. For concrete and ceramics, $\nu \approx 0.10$. For cork $\nu \approx 0$. For rubber, $\nu \approx 0.5$ to 3 places. A material for which $\nu = 0.5$ is called in-compressible.
+The $-$ sign is introduced for convenience so that $\nu$ comes out positive. For structural materials $\nu$ lies in the range $0.0 \leq \nu <0.5$. For most metals $\nu \approx 0.25$–$0.35$. For concrete and ceramics, $\nu \approx 0.10$. For cork $\nu \approx 0$. For rubber, $\nu \approx 0.5$ to 3 places. A material for which $\nu = 0.5$ is called incompressible.
 
 \subsubsection{Shear Modulus In 1D Stress State}
+
 The shear modulus $G$ connects a shear strain $\gamma$ to the corresponding shear stress $\tau$:
 \begin{equation}
 \tau = G\gamma \label{Bulk modulus}
 \end{equation} 
 
-"Corresponding" means that if $\gamma$ = $\gamma \_{xy}$, say, then $\tau = \tau_{xy}$, and similarly for the other shear components. The shear modulus is usually obtained from a torsion test. It turns out that the 3 material properties $E$, $\tau$ and $G$ for an elastic isotropic material are not independent, but are connected by the relations
+"Corresponding" means that if $\gamma$ = $\gamma_{xy}$, say, then $\tau = \tau_{xy}$, and similarly for the other shear components. The shear modulus is usually obtained from a torsion test. It turns out that the 3 material properties $E$, $\tau$ and $G$ for an elastic isotropic material are not independent, but are connected by the relations
 \begin{equation}
 G = \frac{E}{2(1 + \nu)} \label{isotropic}
 \end{equation}
@@ -78,10 +79,19 @@ which means that if two of them are known by measurement, the third one can be o
 
 
 \subsubsection{Shear Modulus In 3D Stress State}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{../images/hookes.png}
+\caption{Three tension tests are assumed to be carried out along $x, y, z$, respectively, and strains superposed.}
+\label{fig:hookes}
+\end{figure}
+
+
 We now generalize the foregoing equations to the three-dimensional case, still assuming that the
 material is elastic and isotropic. Consider a cube of material aligned with the axes ${x, y, z}$, as
-shown in Figure 5.9. Imagine that three tension tests, labeled (1), (2) and (3) respectively, are
-conducted along $x, y and z$, respectively. Pulling the material by applying $\sigma_{xx}$ along x will produce
+shown in figure \ref{fig:hookes}. Imagine that three tension tests, labeled (1), (2) and (3) respectively, are
+conducted along $x, y$ and $z$, respectively. Pulling the material by applying $\sigma_{xx}$ along x will produce
 normal strains
 \begin{equation}
 \epsilon_{xx}^{(1)} = \frac{\sigma_{xx}}{E}, \quad
@@ -101,9 +111,7 @@ Finally pull the material by $\sigma_{zz}$ along z to get
 \epsilon_{yy}^{(3)} = -\frac{\nu\sigma_{yy}}{E}, \quad
 \epsilon_{zz}^{(3)} = -\frac{\sigma_{yy}}{E}
 \end{equation}
-In the general case the cube is subjected to combined normal stresses $\sigma_{xx} ,\sigma_{yy} and \sigma_{zz}$ . Since we
-assumed that the material is linearly elastic, the combined strains can be obtained by superposition
-of the foregoing results:
+In the general case the cube is subjected to combined normal stresses $\sigma_{xx} ,\sigma_{yy}$ and $\sigma_{zz}$ . Since we assumed that the material is linearly elastic, the combined strains can be obtained by superposition of the foregoing results:
 
 \begin{align}
 \begin{split}
@@ -215,11 +223,11 @@ at certain time t (spatial configuration).
 \begin{figure}[H]
     \centering
 	\includegraphics[scale=0.25]{../images/potato.png}
-	\caption{Mesh}
+	\caption{Configurations of body in motion}
 	\label{fig:potato}
 \end{figure}
 
-configurations and motion of a body (\ref{fig:potato})
+configurations and motion of a body (figure \ref{fig:potato})
 
 We define a nonlinear deformation map $\varphi$, which describes
 the motion of the body. The deformation map has to be unique, continuous
@@ -439,7 +447,7 @@ To further simplify the model, instead of considering the complete sphere, only 
 	\label{fig:mesh}
 \end{figure}
 
-To create this setup Abaqus CAE provides an option to create axis-symmetric model. The \ref{fig:mesh} shows the mesh used in the simulation. We can see that the mesh is finer at the bottom of the sphere as it is the point of contact and would undergo massive deformation during the impact. 
+To create this setup Abaqus CAE provides an option to create axis-symmetric model. The figure \ref{fig:mesh} shows the mesh used in the simulation. A good mesh for this simulation would have to be finer at the bottom i.e. closer to the surface of contact. To create this mesh, the semicircle was divided into fours sections. The section closer to the surface of contact has a finer mesh and the region away from the contact surface has a course mesh. In figure \ref{fig:mesh} we see the four partitions and the section of the surface of contact has a very fine mesh and the region away from the surface of contact has a course mesh.
 
 
 \begin{figure}[H]
@@ -449,13 +457,12 @@ To create this setup Abaqus CAE provides an option to create axis-symmetric mode
 	\label{fig:mesh_bottom_half}
 \end{figure}
 
-The \ref{fig:mesh_bottom_half} shows an enlarged image of the bottom half of the mesh. We can see the degree of fineness of the mesh compared to the other half of the sphere.
+The figure \ref{fig:mesh_bottom_half} shows an enlarged image of the bottom half of the mesh. We can see the degree of fineness of the mesh compared to the other half of the sphere.
 
 
 \subsection{Rigid Plane}
 
-The figure shows the rigid plane against which the sphere would be colliding. This plane is an axisymmertic, analytical rigid surface.
-Analytical rigid surfaces are geometric surfaces with profiles that can be described with straight and curved line segments. These profiles can be swept along a generator vector or rotated about an axis to form a three-dimensional surface. An analytical rigid surface does not contribute to the rigid body's mass or inertia properties 
+The figure \ref{fig:plane} shows the rigid plane against which the sphere would be colliding. This plane is an axisymmetric, analytical rigid surface. Analytical rigid surfaces are geometric surfaces with profiles that can be described with straight and curved line segments. These profiles can be swept along a generator vector or rotated about an axis to form a three-dimensional surface. An analytical rigid surface does not contribute to the rigid body's mass or inertia properties.
 
 \begin{figure}[H]
     \centering
@@ -467,7 +474,7 @@ Analytical rigid surfaces are geometric surfaces with profiles that can be descr
 
 \subsection{Assembly}
 
-The final assembly is of the sphere in contact with the rigid plane as shows in \ref{fig:assembly}. The sphere is given a velocity in the $-y$ direction. The starting point of the simulation is when the sphere is in contact with the plane and is about the collide with the plane.
+The final assembly is of the sphere in contact with the rigid plane as shown in figure \ref{fig:assembly}. The sphere is given a velocity in the $-y$ direction. The starting point of the simulation is when the sphere is in contact with the plane and is about the collide with the plane.
 \begin{figure}[H]
     \centering
 	\includegraphics[scale=0.5]{../images/SimulationSetup/Assembly.eps}
@@ -475,25 +482,41 @@ The final assembly is of the sphere in contact with the rigid plane as shows in 
 	\label{fig:assembly}
 \end{figure}
 
+
+
 \section{Measurement Quantities}
 
 \subsection{Displacement}
 
-To measure the displacement of the body, the displacement of the center of mass was measured. The center of mass of the of a sphere is located at the geometric centre of the sphere. The figure shows the center of the 2D semi-circle which was considered as the sphere of the model. To measure the displacement center of mass of the sphere, the displacement of center of the semicircle was considered.
+\begin{wrapfigure}{R}{0.5\textwidth}
+  \begin{center}
+	\includegraphics[scale=1]{../images/Mesh/Center.eps}
+  \end{center}
+  \caption{Center of sphere}
+  \label{fig:center}
+\end{wrapfigure}
+
+%\begin{figure}[H]
+%    \centering
+%	\includegraphics[scale=0.5]{../images/Mesh/Center.eps}
+%	\caption{Assembly}
+%	\label{fig:assembly}
+%\end{figure}
+To measure the displacement of the body, the displacement of the center of mass was measured. The center of mass of the of a sphere is located at the geometric center of the sphere. The figure \ref{fig:center} shows the center of the 2D semi-circle in red, which was considered as the sphere of the model. To measure the displacement center of mass of the sphere, the displacement of center of the semicircle was considered.
 
 \subsection{Kinetic Energy}
 
-The kinetic energy of an object is the energy that it possesses due to its motion. As the aim of the thesis is to measure the co-efficient of restitution, which is directly related to the restitution kinetic energy in the body after the collision is completed.
+The kinetic energy of an object is the energy that it possesses due to its motion. It is expected that some of the kinetic energy will be converted to strain energy, which can be seen by vibrations in the sphere. The kinetic energy will also be used to calculate the coefficient of restitution of the sphere for various impact velocities.
 
 \begin{equation}
 Kinetic Energy(KE) = \frac{mv^{2}}{2}
 \end{equation}
  
- where $m$ is the mass of the object and $v$ is the velocity of the object.
+where $m$ is the mass of the object and $v$ is the velocity of the object.
 
 \subsection{Strain Energy}
 
-The strain energy is the energy stored by a system undergoing deformation. During a collision, a part of the kinetic energy is converted into strain energy. This conversion of kinetic energy to strain energy is ignored due to the quasi static assumptions . This strain energy can also be observed as vibration on the body of the object. When the load is removed,
+The strain energy is the energy stored by a system undergoing deformation. During a collision, a part of the kinetic energy is converted into strain energy. This conversion of kinetic energy to strain energy is ignored due to the quasi static assumptions. This strain energy can also be observed as vibration on the body of the object. When the load is removed,
 
 \begin{equation}
 Strain Energy(U) = \frac{V\sigma\epsilon}{2}
@@ -503,8 +526,8 @@ where $V$ is volume, $\sigma$ is stress and $\epsilon$ is strain.
 
 \subsection{Coefficient of Restitution}
 
-The co-efficient of restitution is an effective method of understanding the loss of energy in a body during collisions. The co-efficient of restitution is a measure of the restitution of kinetic energy after the collision of two objects. 
-The co-efficient of restitution is calculated by,
+The coefficient of restitution is an effective method of understanding the loss of energy in a body during collisions. The coefficient of restitution is a measure of the restitution of kinetic energy after the collision of two objects. 
+The coefficient of restitution is calculated by,
 \begin{equation}
 COR = \frac{-Velocity\, after\, impact}{Velocity\, before\, impact}
 \end{equation}

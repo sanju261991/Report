@@ -10,13 +10,11 @@
 
 \section{Summary}
 
-\paragraph{First Chapter - Introduction} contains the introduction to granular material and the Hertz contact theory.
+In this thesis the validity of the current force model used in simulation of granular materials was challenged. The current theory for contact problems for elastic and viscoelastic materials involve quasi static approximations. The quasi static assumptions imply that the characteristic deformation rate is much smaller than the speed of sound in the material and that the relaxation time of the particle's material is negligible compared to the duration of the contact. The validity of these assumptions is probed by considering the case of impact between two elastic spheres. The simulations were preformed using the Finite Element tool Abaqus CAE. 
 
-\paragraph{Second Chapter - Simulation Method} contains the introduction to the Finite Element Method and describes the simulation step used for the simulations.
+To validate the quasi static assumptions various quantities such as deformation, contact force and coefficient of restitution were studied. The plots of deformation do show an error between the theory and the simulation for higher impact velocities, but a more convincing quantity to determine the effect of the assumptions was the coefficient of restitution, which was calculated using the kinetic energy of the sphere before and after the impact. These results show the loss of kinetic energy in the sphere, which was converted to strain energy resulting in vibrations within the sphere. The loss of kinetic observed in the simulations was much smaller than expected, hence the quasi static assumption are valid. A modal analysis was also conducted to further verify the nature of the coefficient of restitution vs impact velocity plot, which are affected by the natural vibrations of the sphere. 
 
-\paragraph{Third Chapter - Results} contains the set of results and their interpretation.  
-
-In this thesis the effects of quasi static approximations in the current models of force contacts and the conversion of kinetic energy to strain energy was studied. After the simulations it was concluded that the effect of the quasi static approximation is not significant as the amount of kinetic energy converted to strain energy is very small and can be neglected. Hence the quasi static approximations are valid.
+A parametric study was also conducted by varying the Youngs Modulus and diameter of sphere. In the case of the varying Youngs Modulus, the coefficient of restitution seems to reach a maximum value for higher Youngs Modulii, whereas the variation of the radius of the sphere did not results in any change in the plots, which was unexpected as for viscoelastic materials the coefficient of restitution is inversely proportional to the radius of the sphere. 
 
 
 \section{Future Work}

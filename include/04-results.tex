@@ -65,46 +65,46 @@ As we study the loss of kinetic energy to vibrations let's first consider a very
 %%%%%%%%%%%%%%%%%Force%%%%%%%%%%%%%%%%
 \subsection{Contact Force}
 
-\begin{figure}[!htbp]
+\begin{figure}[H]
 \centering
 \subfloat[Velocity 0.01m/s]{
-\includegraphics[width=0.50\textwidth]{{../images/force/Force-vel1.0}.png}
+\includegraphics[width=0.4\textwidth]{{../images/force/Force-vel1.0}.png}
 \label{fig:force1}
 }
 \subfloat[Velocity 0.10m/s]{
-\includegraphics[width=0.50\textwidth]{{../images/force/Force-vel10.0}.png}
+\includegraphics[width=0.40\textwidth]{{../images/force/Force-vel10.0}.png}
 \label{fig:force10}
 }
 
 \subfloat[Velocity 0.20m/s]{
-\includegraphics[width=0.50\textwidth]{{../images/force/Force-vel20.0}.png}
+\includegraphics[width=0.40\textwidth]{{../images/force/Force-vel20.0}.png}
 \label{fig:force20}
 }
 \subfloat[Velocity 0.30m/s]{
-\includegraphics[width=0.50\textwidth]{{../images/force/Force-vel30.0}.png}
+\includegraphics[width=0.40\textwidth]{{../images/force/Force-vel30.0}.png}
 \label{fig:force30}
 }
 
 \subfloat[Velocity 1.0m/s]{
-\includegraphics[width=0.50\textwidth]{{../images/force/Force-vel100.0}.png}
+\includegraphics[width=0.40\textwidth]{{../images/force/Force-vel100.0}.png}
 \label{fig:force50}
 }
 \subfloat[Velocity 3.0m/s]{
-\includegraphics[width=0.50\textwidth]{{../images/force/Force-vel300.0}.png}
+\includegraphics[width=0.40\textwidth]{{../images/force/Force-vel300.0}.png}
 \label{fig:force300}
 }
 \caption{Contact force vs Time for various impact velocities}
 \label{fig:force}
 \end{figure}
 
-Now considering a harder material, i.e. with $Youngs Modulus(E)$ of $9.3GPa$. This Youngs Modulus was chosen as it was neither to hard nor to soft and had the vibration visible. The plots in \ref{fig:force} show the contact force between the sphere and the rigid plane. The plots shows that as the impact velocities are higher, the difference between the simulation data and the theoretical data is more visible. This errors is due the quasi static assumptions.
+Now considering a harder material, i.e. with Young's Modulus$(E)$ of $9.3GPa$ and mass density of 900$Kg/m^{3}$. This Young's Modulus was chosen as it was neither to hard nor to soft and had the vibration visible. The plots in figure \ref{fig:force} show the contact force between the sphere and the rigid plane. The plots shows that as the impact velocities are higher, the difference between the simulation data and the theoretical data is more visible. This errors is due the quasi static assumptions.
 
 
 %%%%%%%%%%%%%%%%%%COM%%%%%%%%%%%%%%%%%%%
 
 \subsection{Deformation}
 
-\begin{figure}[!htbp]
+\begin{figure}[H]
 \centering
 \subfloat[Velocity 0.01m/s]{
 \includegraphics[width=0.50\textwidth]{{../images/deformationVStime/Velocity1.0}.png}
@@ -136,7 +136,7 @@ Now considering a harder material, i.e. with $Youngs Modulus(E)$ of $9.3GPa$. Th
 \label{fig:def}
 \end{figure}
 
-The plots in \ref{fig:def} show displacement of the center point of the sphere with respect to time. The plots shows that as the impact velocities are higher, the difference between the simulation data and the theoretical data is more visible. This errors is due the quasi static assumptions. But unfortunately these plot are not conclusive as the velocity of the center of mass is the velocity which should be compared and not the velocity of the center of the sphere.
+The plots in figure \ref{fig:def} show displacement of the center point of the sphere with respect to time. The plots shows that as the impact velocities are higher, the difference between the simulation data and the theoretical data is more visible. This errors is due the quasi static assumptions. But unfortunately these plot are not conclusive as the velocity of the center of mass is the velocity which should be compared and not the velocity of the center of the sphere.
 
 
 %%%%%%%%%%%%%%%%%%Energy%%%%%%%%%%%%%%%%%%%%
@@ -153,9 +153,9 @@ The plots in \ref{fig:def} show displacement of the center point of the sphere w
 \caption{Kinetic Energy contact after impact}
 \label{fig:KEzoomed}
 \end{figure}
-The figure \ref{fig:KE} shows Kinetic Energy vs Time for the impact velocity of $0.15m/s$. It is clear that the kinetic energy decreases in the beginning of the impact and increases towards the end of the impact. When observed carefully, fluctuations can be observed in the plot after the impact is completed as shows in \ref{fig:KEzoomed}. As discussed in the previous paragraphs, this is because a part of the kinetic energy is converted into strain energy which cause vibrations in within the model.
+The figure \ref{fig:KE} shows Kinetic Energy vs Time for the impact velocity of $0.15m/s$. It is clear that the kinetic energy decreases in the beginning of the impact and increases towards the end of the impact. When observed carefully, fluctuations can be observed in the plot after the impact is completed as shows in figure \ref{fig:KEzoomed}. As discussed in the previous paragraphs, this is because a part of the kinetic energy is converted into strain energy which cause vibrations in within the model.
 
-A similar trend is also visible in the plot of the strain energy of the sphere. It is clear from \ref{fig:SEzoomed}, that after the collision is complete, the body still possesses a small amount of strain energy.
+A similar trend is also visible in the plot of the strain energy of the sphere. It is clear from figure \ref{fig:SEzoomed}, that after the collision is complete, the body still possesses a small amount of strain energy.
 
 \begin{figure}[H]
 \includegraphics[width=1.0\textwidth]{../images/StrainEnergy/SE_pdf.pdf}
@@ -172,7 +172,7 @@ A similar trend is also visible in the plot of the strain energy of the sphere. 
 \subsection{Coefficient of Restitution}
 
 \begin{figure}[H]
-\includegraphics[width=1.0\textwidth]{../images/COR/COR_pdf.pdf}
+\includegraphics[scale=0.25]{../images/COR/COR_pdf.pdf}
 \caption{Co-efficient of restitution}
 \label{fig:COR}
 \end{figure}
@@ -202,9 +202,9 @@ Measure the co-efficient of restitution is a measure of the restitution of kinet
 \label{fig:modes}
 \end{figure}
 
-To understand the plot \ref{fig:COR}, the modal analysis of the sphere was necessary. The natural frequencies of the sphere can affect the trajectory of the sphere during the impact. The two natural modes are shown in \ref{fig:modes}.
+To understand the plot in figure \ref{fig:COR}, the modal analysis of the sphere was necessary. The natural frequencies of the sphere can affect the trajectory of the sphere during the impact. The two natural modes are shown in figure \ref{fig:modes}.
 
-The modes shown in \ref{fig:modes} can affect the velocity of the sphere after the impact is complete. For example, when the sphere is in the prolate mode during towards the end of the impact, the velocity of the sphere increases as the direction of the sphere and the natural vibration modes are the same and decreases if the sphere is in the oblate mode during the end of the impact. 
+The modes shown in figure \ref{fig:modes} can affect the velocity of the sphere after the impact is complete. For example, when the sphere is in the prolate mode towards the end of the impact, the velocity of the sphere increases as the direction of the velocity of the sphere and the natural vibration modes are the same and decreases if the sphere is in the oblate mode during the end of the impact. 
 
 \subsubsection{Eigen Frequencies of an elastic sphere}
 
@@ -287,7 +287,7 @@ F = \frac{1}{T} = 186492.602141Hz
 \label{fig:spectrum}
 \end{figure}
 
-Now performing a fourier transform on the data of the strain energy remaining in the sphere after the impact is complete the frequency spectrum shown in \ref{fig:spectrum} was obtained.
+Now performing a fourier transform on the data of the strain energy remaining in the sphere after the impact is complete the frequency spectrum shown in figure \ref{fig:spectrum} was obtained.
 
 \begin{figure}[H]
 \centering
@@ -296,7 +296,7 @@ Now performing a fourier transform on the data of the strain energy remaining in
 \label{fig:oscillations}
 \end{figure}
 
-Now we calculate the number oscillations of the during the time of contact. When the plot of co-efficient of restitution and number of oscillation \ref{fig:oscillations} is compared, we observe whenever the number of completed oscillations increments by 1, the plot \ref{fig:COR} tends to dip and create a valley. This shows when the sphere is in the oblate  phase of the vibration, it results in a higher after impact velocity, hence create a bump in the plot of the co-efficient of restitution.
+Now we calculate the number oscillations of the during the time of contact. When the plot of coefficient of restitution and number of oscillation is compared in figure \ref{fig:oscillations}, we observe whenever the number of completed oscillations increments by 1, the plot in figure \ref{fig:COR} tends to dip and create a valley. This shows when the sphere is in the oblate phase of the vibration, it results in a higher after impact velocity, hence create a bump in the plot of the coefficient of restitution.
 
 
 
@@ -304,18 +304,18 @@ Now we calculate the number oscillations of the during the time of contact. When
 \section{Parametric Study}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The next step of further study would be to experiment with various parameters such as material and diameter of the sphere.
+The next step of further study would be to study how various parameters such as material and diameter of the sphere would effect the above obtained results.
 
 
-\subsection{Different Youngs Modulus}
+\subsection{Different Young's Modulus}
 
 \begin{figure}[H]
 \includegraphics[width=1.0\textwidth]{../images/parametricStudy/CORdiffE_pdf.pdf}
-\caption{Co-efficient of restitution for various Youngs Modulus}
+\caption{Co-efficient of restitution for various Young's Modulus}
 \label{fig:CORdiffEcomplete}
 \end{figure}
 
-The simulation was performed for a range of Youngs Modulii ranging from $1e8N/m^{2}$ to $1e11N/m^{2}$. It can be observed from the plots \ref{fig:CORdiffEcomplete}, for higher velocities as the $E$ increases the COR saturates to a level, which implies for materials for higher $E$, the percentage loss of kinetic energy remain constant. Whereas for lower velocities we see the reverse plots, i.e higher $E$'s have a lower co-efficient of restitution. This results was unexpected as the expected result was a gradual increase in co-efficient of restitution as the $E$ increases. 
+The simulation was performed for a range of Young's Moduli ranging from $1e8N/m^{2}$ to $1e11N/m^{2}$. It can be observed from the plots in figure \ref{fig:CORdiffEcomplete}, for higher velocities as the $E$ increases the COR saturates to a level, which implies for materials for higher $E$, the percentage loss of kinetic energy remain constant. Whereas for lower velocities we see the reverse plots, i.e higher $E$'s have a lower co-efficient of restitution. This results was unexpected as the expected result was a gradual increase in co-efficient of restitution as the $E$ increases. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -350,7 +350,7 @@ therefore
 \beta \propto \Big( \frac{\sqrt{R}}{R^{3}} \Big)^{\frac{2}{5}} = R^{-1}
 \end{align*}
 
-Hence we see, for a viscoelastic case the co-efficient of restitution is inversely proportional to the radius. A similar result was expected for the elastic case, but the plot \ref{fig:CORDiffDia} does not agree. We see there is no effect of diameter on the co-efficient of restitution in the elastic case.
+Hence we see, for a viscoelastic case the co-efficient of restitution is inversely proportional to the radius. A similar result was expected for the elastic case, but the plot in figure \ref{fig:CORDiffDia} does not agree. We see there is no effect of diameter on the co-efficient of restitution in the elastic case.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
